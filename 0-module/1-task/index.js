@@ -4,3 +4,4 @@ function sum(m, n) {
 }
 
 sum(1, 1);
+sum(2,5);
