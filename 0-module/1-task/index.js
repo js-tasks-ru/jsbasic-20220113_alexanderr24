@@ -1,4 +1,6 @@
-function sum(m, n) {
+function sum(a, b) {
   // ваш код...
-  return m + n;
+  return a + b;
 }
+
+sum(2, 2);
