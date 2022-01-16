@@ -1,5 +1,5 @@
-function sum(a, b) {
+function sum(a, c) {
   // ваш код...
-  return a + b;
+  return a + c;
 }
 
