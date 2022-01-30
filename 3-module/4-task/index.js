@@ -1,12 +1,7 @@
 function showSalary(users, age) {
   // ваш код...
-  let filterUserAge = users.filter(item => item.age <= age);
+  let filterUserAge = users.filter((item) => item.age <= age);
+  let getUsers = filterUserAge.map((item) => `${item.name}, ${item.balance}`);
 
-  let str = '';
-  
-  filterUserAge.forEach((item, i) => {
-    str += (i == filterUserAge.length - 1) ? `${item.name}, ${item.balance}` : `${item.name}, ${item.balance}\n`;
-  });
-
-  return str;
+  return `${getUsers.join('\n')}`;
 }
