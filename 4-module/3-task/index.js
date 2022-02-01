@@ -12,6 +12,7 @@ function highlight(table) {
           break;
         case "false": {
           item.classList.add("unavailable");
+          break;
         }
       }
     } else {
