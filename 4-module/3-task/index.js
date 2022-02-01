@@ -18,9 +18,8 @@ function highlight(table) {
     } else {
       item.setAttribute("hidden", "");
     }
-  });
+    
 
-  arr.forEach((item) => {
     let tdGender = item.children[2];
     switch (tdGender.textContent) {
       case "m": {
@@ -32,9 +31,7 @@ function highlight(table) {
         break;
       }
     }
-  });
 
-  arr.forEach((item) => {
     let tdAge = item.children[1];
     if (tdAge.textContent < 18) {
       item.style.textDecoration = "line-through";
