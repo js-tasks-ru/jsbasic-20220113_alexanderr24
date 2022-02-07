@@ -8,27 +8,26 @@ function initCarousel() {
   let carouselArrowRight = carousel.querySelector('.carousel__arrow_right');
 
   let offset = 0;
-  let getSlideWidth = carousel.offsetWidth;
-  let getSlidesWidth = 0;
+  let widthInner = carouselInner.offsetWidth * Array.from(carouselSlides).length;
+  let widthSlide = carouselInner.offsetWidth;
 
-  carouselSlides.forEach(item => {
-    item.style.width = `${getSlideWidth}px`;
-    getSlidesWidth += item.offsetWidth;
-  });
+  function hideArrows(arrow, display) {
+    arrow.style.display = display;
+  }
 
   carouselArrowRight.addEventListener('click', () => {
-    if (offset != getSlidesWidth - getSlideWidth) offset += getSlideWidth;
-    if (offset == getSlidesWidth - getSlideWidth) carouselArrowRight.style.display = 'none';
-    if (offset > 0) carouselArrowLeft.style.display = '';;
+    if (offset != widthInner - widthSlide) offset += widthSlide;
+    if (offset == widthInner - widthSlide) hideArrows(carouselArrowRight, 'none');
+    if (offset > 0) hideArrows(carouselArrowLeft, '');
     carouselInner.style.transform = `translateX(-${offset}px)`;
   });
 
-  carouselArrowLeft.style.display = 'none';
+  hideArrows(carouselArrowLeft, 'none');
 
   carouselArrowLeft.addEventListener('click', () => {
-    if (offset < getSlidesWidth) carouselArrowRight.style.display = '';
-    if (offset != 0) offset -= getSlideWidth;
-    if (offset == 0) carouselArrowLeft.style.display = 'none';
+    if (offset != 0) offset -= widthSlide;
+    if (offset < widthInner) hideArrows(carouselArrowRight, '');
+    if (offset == 0) hideArrows(carouselArrowLeft, 'none');
     carouselInner.style.transform = `translateX(-${offset}px)`;
   });
 
